@@ -6,6 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip kuro-26.2-source.zip
+      - run: sed -i 's/mc\.screen == null/mc.gui.screen() == null/; s/mc\.setScreen(/mc.gui.setScreen(/' kuro-client-26.2/src/main/java/dev/kuro/KuroClient.java
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
